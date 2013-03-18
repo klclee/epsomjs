@@ -1,0 +1,30 @@
+{
+  "name": "crystal - expressjs template",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+      "install": "node node_modules/coffee-script/bin/cake build",
+      "start": "node server.js",
+      "test": "mocha --require should --compilers coffee:coffee-script --colors"
+  },
+  "dependencies": {
+    "express": "3.1.0",
+		"ejs": "*",
+    "jade": "*",
+    "css": "*",
+		"coffee-script": "*",
+		"uglify-js": "*",
+		"connect-assets": "*",
+    "which": "*",
+    "mongoose": "*",
+    "request": "*"
+  },
+  "devDependencies": {
+      "coffee-script": "*",
+      "mocha": "*",
+      "should": "*",
+      "request": "*",
+      "supervisor": "*",
+      "docco": "*"
+  }
+}

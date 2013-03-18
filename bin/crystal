@@ -1,0 +1,23 @@
+#!/usr/bin/env node
+
+var exec = require('child_process').exec
+  , program = require('commander')
+  , pkg = require('../package.json')
+  , version = pkg.version
+  , os = require('os')
+  , fs = require('fs')
+	, sh = require('shelljs/global');
+	
+program
+  .version(version)
+  .option('--path <path to your project>', 'path of your expressjs project', String, '.')
+	
+program.command('clear').action(function(env){
+	path = program.path
+	if (path == '.'){
+		
+	}
+	cp('-R', '../package.json','/Users/kraken/Development/node')
+});
+
+program.parse(process.argv);

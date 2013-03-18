@@ -1,0 +1,42 @@
+{
+  "name": "crsytal",
+  "description": "express app creator using zurb foundation, coffee script standard structure",
+  "version": "0.0.1",
+  "author": {
+    "name": "Charlie Lee",
+    "email": "charleetm@gmai.com"
+  },
+  "dependencies": {
+    "commander": "0.6.1",
+    "debug": "*",
+		"shelljs": "*"
+  },
+  "keywords": [
+		"crsytal",
+    "express",
+    "framework",
+    "sinatra",
+    "web",
+    "rest",
+    "restful",
+    "router",
+    "app",
+    "api"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:klclee/crystal.git"
+  },
+  "main": "index",
+  "bin": {
+    "crystal": "./bin/crystal"
+  },
+  "scripts": {
+    "prepublish": "npm prune",
+    "test": "make test"
+  },
+  "engines": {
+    "node": "*"
+  },
+  "readmeFilename": "Readme.md"
+}
