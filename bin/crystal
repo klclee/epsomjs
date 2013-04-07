@@ -10,14 +10,18 @@ var exec = require('child_process').exec
 	
 program
   .version(version)
-  .option('--path <path to your project>', 'path of your expressjs project', String, '.')
+  .option('--path <path to your project>', 'path of your expressjs project (defaults to your current directory)', String, '.')
 	
 program.command('clear').action(function(env){
 	path = program.path
 	if (path == '.'){
-		
+		console.log('creating express templates at ' + __dirname);
+		cp('-R', '../lib/proj/*',__dirname)
+	}else{
+		console.log('creating express templates at ' + path);
+		cp('-R', '../lib/proj/*',path)
 	}
-	cp('-R', '../package.json','/Users/kraken/Development/node')
+	
 });
 
 program.parse(process.argv);
