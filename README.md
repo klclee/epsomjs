@@ -5,6 +5,7 @@ The aim of crystal is to provide a clear way to kick start your nodejs/expressjs
 
 ## features:
 
+### 0.0.1
 * create template files for expressjs with zurb foundation, coffee-script, emberjs, jquery, zepto. 
 
 ## Install:
