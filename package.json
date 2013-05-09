@@ -1,6 +1,6 @@
 {
   "name": "crsytal",
-  "description": "express app creator using zurb foundation, coffee script standard structure",
+  "description": "Expressjs skeleton with zurb foundation, coffee-script, emberjs, jquery, zepto",
   "version": "0.0.1",
   "author": {
     "name": "Charlie Lee",
