@@ -1,5 +1,11 @@
 #!/usr/bin/env node
 
+var red, blue, green, reset;
+red   = '\u001b[31m';
+blue  = '\u001b[34m';
+green  = '\u001b[32m';
+reset = '\u001b[0m';
+
 var exec = require('child_process').exec
   , path = require('path')
   , program = require('commander')
@@ -11,17 +17,13 @@ var exec = require('child_process').exec
 	
 program
   .version(version)
-  .option('--path <path to your project>', 'path of your expressjs project (defaults to your current directory)', String, '.')
 	
 program.command('clear').action(function(env){
-	path = program.path
+	path = '.'
 	if (path == '.'){
-		console.log('creating express templates at ' + __dirname);
-		cp('-R', '../lib/proj/*',__dirname)
-	}else{
-		console.log('creating express templates at ' + path);
-		cp('-R', '../lib/proj/*',path)
-
+		console.log(green + 'creating express project at: ' + __dirname);
+		cp('-R', '../lib/templates/', __dirname)
+		console.log(reset + 'complete. To start your project execute' + green + ' npm install ' + reset + 'then' + green + ' cake dev')
 	}
 	
 });
