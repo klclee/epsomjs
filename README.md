@@ -11,7 +11,7 @@ The aim of crystal is to provide a clear way to kick start your nodejs/expressjs
 
 *make sure you already have node and npm installed at global scope*
 
-```npm install crsytal```
+```npm install -g crsytal```
 
 ## Useage:
 
