@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "author": {
     "name": "Charlie Lee",
-    "email": "charleetm@gmai.com"
+    "email": "charleetm@gmail.com"
   },
   "dependencies": {
     "commander": "0.6.1",
