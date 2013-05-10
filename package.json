@@ -1,7 +1,7 @@
 {
-  "name": "crsytal",
-  "description": "Expressjs skeleton with coffee-script. Configured using zurb foundation, emberjs, jquery",
-  "version": "0.1.0",
+  "name": "crystal",
+  "description": "Express skeleton with coffee-script. Configured using zurb foundation, emberjs, jquery",
+  "version": "0.1.1",
   "author": {
     "name": "Charlie Lee",
     "email": "charleetm@gmail.com"
@@ -12,7 +12,7 @@
 		"shelljs": "*"
   },
   "keywords": [
-		"crsytal",
+	"crystal",
     "express",
     "framework",
     "sinatra",

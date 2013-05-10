@@ -5,7 +5,7 @@ The aim of crystal is to provide a clear way to kick start your nodejs/expressjs
 
 ## releases:
 
-### 0.1.0
+### 0.1.1
 * more relsitic configuration based on Emberjs. Now the tempaltes work with ember out of the box!
 * remove zepto as emberjs needs jquery
 
