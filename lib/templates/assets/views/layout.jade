@@ -1,9 +1,21 @@
 doctype 5
 html
     head
-        != js('zepto')
-        != js('application')
 
-        != css('foundation')
     body
+        script(type = 'text/x-handlebars')
+            nav.top-bar
+                ul.title-area
+                 li.name
+                    h1
+                        {{#linkTo 'index'}}CrystalJS{{/linkTo}}
+            {{outlet}}
+
         block content
+
+        include home
+
+        != js('lib/jquery')
+        != js('application')
+        != css('foundation')
+        != css('normalize')

@@ -1,6 +1,6 @@
 {
   "name": "crystal_templates",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
       "install": "node node_modules/coffee-script/bin/cake build",

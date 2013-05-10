@@ -1,7 +1,7 @@
 {
   "name": "crsytal",
-  "description": "Expressjs skeleton with zurb foundation, coffee-script, emberjs, jquery, zepto",
-  "version": "0.0.1",
+  "description": "Expressjs skeleton with coffee-script. Configured using zurb foundation, emberjs, jquery",
+  "version": "0.1.0",
   "author": {
     "name": "Charlie Lee",
     "email": "charleetm@gmail.com"
