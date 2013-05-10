@@ -1,5 +1,5 @@
 {
-  "name": "crystal",
+  "name": "epsom",
   "description": "Express skeleton with coffee-script. Configured using zurb foundation, emberjs, jquery",
   "version": "0.1.1",
   "author": {
@@ -12,7 +12,7 @@
 		"shelljs": "*"
   },
   "keywords": [
-	"crystal",
+	"epsom",
     "express",
     "framework",
     "sinatra",
@@ -21,11 +21,12 @@
     "restful",
     "router",
     "app",
-    "api"
+    "api",
+    "ember"
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:klclee/crystaljs.git"
+    "url": "git@github.com:klclee/epsomjs.git"
   },
   "main": "index",
   "bin": {

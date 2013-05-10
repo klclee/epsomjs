@@ -1,7 +1,7 @@
-crystal
+epsom
 =======
 
-The aim of crystal is to provide a clear way to kick start your nodejs/expressjs project. The ultimate aim is provide a way to work with expressjs using coffeescript as your main langauge, emberjs as your view MVC and mongodb as your store.
+The aim of epsomjs is to provide a clear way to kick start your nodejs/expressjs project. The ultimate aim is provide a way to work with expressjs using coffeescript as your main langauge, emberjs as your view MVC and mongodb as your store.
 
 ## releases:
 
@@ -16,7 +16,7 @@ The aim of crystal is to provide a clear way to kick start your nodejs/expressjs
 
 *make sure you already have nodejs, npm and mongodb installed at global scope*
 
-```npm install -g crsytal```
+```npm install -g epsom```
 
 ## Useage:
 
@@ -24,4 +24,4 @@ The aim of crystal is to provide a clear way to kick start your nodejs/expressjs
 
 ```cd your_new_project_dir```
 
-```crsytal clear```
+```crystal clear```
