@@ -1,7 +1,7 @@
 {
   "name": "epsom",
-  "description": "Express skeleton with coffee-script. Configured using zurb foundation, emberjs, jquery",
-  "version": "0.1.1",
+  "description": "Express skeleton with coffee-script. Configured using mongoose,  zurb foundation, emberjs, jquery",
+  "version": "0.2.0",
   "author": {
     "name": "Charlie Lee",
     "email": "charleetm@gmail.com"
@@ -9,7 +9,7 @@
   "dependencies": {
     "commander": "0.6.1",
     "debug": "*",
-		"shelljs": "*"
+	"shelljs": "*"
   },
   "keywords": [
 	"epsom",
@@ -22,7 +22,8 @@
     "router",
     "app",
     "api",
-    "ember"
+    "ember",
+    "mongoose"
   ],
   "repository": {
     "type": "git",
@@ -30,7 +31,7 @@
   },
   "main": "index",
   "bin": {
-    "crystal": "./bin/crystal"
+    "epsom": "./bin/epsom"
   },
   "scripts": {
     "prepublish": "npm prune",

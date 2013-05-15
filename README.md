@@ -5,6 +5,12 @@ The aim of epsomjs is to provide a clear way to kick start your nodejs/expressjs
 
 ## releases:
 
+### 0.2.0
+* added config directory. Writes out a mongodb config file for different envioments.
+* added example in the template (database.coffee) to retrive a mongoose schema
+* changed the command line form crystal to epsom
+* fixed path problems when creating the project files
+
 ### 0.1.1
 * more relsitic configuration based on Emberjs. Now the tempaltes work with ember out of the box!
 * remove zepto as emberjs needs jquery
@@ -20,8 +26,19 @@ The aim of epsomjs is to provide a clear way to kick start your nodejs/expressjs
 
 ## Useage:
 
-```mkdir your_new_project_dir```
+```epsom path_to_your_new_project```
 
-```cd your_new_project_dir```
+or
 
-```crystal clear```
+```epsom```
+
+The above will create a project at your current path
+
+
+You should see a set of new files ready to start your project with. For more information for each of the frameworks:
+
+* [Nodejs](http://nodejs.org/)
+* [Expressjs](http://expressjs.com)
+* [Emberjs](http://emberjs.com)
+* [Foundation](http://foundation.zurb.com/docs/)
+* [Jquery](http://jquery.com/)

@@ -1,0 +1,91 @@
+#!/usr/bin/env node
+
+var red, blue, green, reset;
+red = '\u001b[31m';
+blue = '\u001b[34m';
+green = '\u001b[32m';
+reset = '\u001b[0m';
+
+var exec = require('child_process').exec
+    , path = require('path')
+    , program = require('commander')
+    , pkg = require('../package.json')
+    , version = pkg.version
+    , fs = require('fs')
+    , sh = require('shelljs/global');
+
+
+
+function dbJson(project_name) {
+    return {
+        production: {
+            host: 'CHANGE_ME',
+            port: 27017,
+            databaseName: project_name + '_production'
+        },
+        development: {
+            host: 'localhost',
+            port: 27017,
+            databaseName: project_name + '_development'
+        }
+    };
+}
+
+function val(val){
+    console.log(val);
+}
+
+program
+    .version(version)
+    .parse(process.argv);
+
+var path_p = program.args.shift() || '.';
+
+(function createApplication(path_p) {
+    console.log();
+    exitPrint();
+    problemPrint();
+
+    var path_array = path.resolve(path_p).split(path.sep);
+    var project_name = path_array[path_array.length -1 ];
+
+    console.log(green + 'creating express project at: ' + path_p  + reset + red);
+    mkdir('-p', path_p);
+    var template_path = path.resolve(__dirname, '..', 'lib/templates/');
+    cp('-R', template_path + '/*', path_p);
+    console.log(reset + blue +'creating database json config');
+    makeDatabaseJson(project_name);
+
+})(path_p);
+
+
+function makeDatabaseJson(project_name) {
+    mkdir('-p', path_p + '/config');
+    fs.writeFile( path_p + '/config/database.json', JSON.stringify(dbJson(project_name), null, 4));
+}
+
+
+function exitPrint(){
+    process.on('exit', function(){
+        console.log();
+        console.log(reset + 'complete. To start your project execute:');
+        if (path_p == '.'){
+            console.log(reset + '     $ npm install');
+        }else{
+            console.log(reset + '     $ cd %s && npm install', path_p);
+        }
+        console.log();
+        console.log(reset + '   run the app:');
+        console.log(reset + '     $ cake dev');
+        console.log();
+    });
+}
+
+function problemPrint(){
+    process.on('uncaughtException', function(err){
+        console.log();
+        console.log(reset + red + err);
+        console.log();
+        process.exit(1);
+    });
+}
