@@ -5,7 +5,7 @@ The aim of epsomjs is to provide a clear way to kick start your nodejs/expressjs
 
 ## releases:
 
-### 0.2.0
+### 0.2.1
 * added config directory. Writes out a mongodb config file for different envioments.
 * added example in the template (database.coffee) to retrive a mongoose schema
 * changed the command line form crystal to epsom

@@ -15,6 +15,6 @@ exports.app_config = (app, express) ->
   app.use express.cookieParser('your secret here')
   app.use express.session()
   app.use app.router
+  database.db_init(app.get('env'))
   if app.get('env') == 'development'
-    database.db_init 'localhost', '27017', 'lb_development'
     app.use express.errorHandler()

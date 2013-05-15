@@ -1,7 +1,7 @@
 {
   "name": "epsom",
   "description": "Express skeleton with coffee-script. Configured using mongoose,  zurb foundation, emberjs, jquery",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": {
     "name": "Charlie Lee",
     "email": "charleetm@gmail.com"
