@@ -30,7 +30,8 @@ The aim of epsomjs is to provide a clear way to kick start your nodejs/expressjs
 
 or
 
-```epsom```
+``` epsom ```
+
 
 The above will create a project at your current path
 
