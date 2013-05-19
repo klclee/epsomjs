@@ -2,7 +2,6 @@ fs            = require 'fs'
 {print}       = require 'util'
 which         = require('which')
 {spawn, exec} = require 'child_process'
-sh = require 'shelljs/global'
 
 # ANSI Terminal Colors
 bold  = '\x1B[0;1m'
@@ -57,25 +56,26 @@ test = (callback) ->
     log 'Mocha is not installed - try npm install mocha -g', red
 
 execCallBack= (process, callback) ->
+  process.stdout.on 'data', (data) -> print data.toString()
+  process.stderr.on 'data', (data) -> print data.toString()
   process.on 'exit', (status) -> callback?() if status is 0
 
 
 nuke_build = (callback) ->
-  rm '-fr', build_dir
-  callback?()
+  rm = exec "rm -fr #{build_dir}"
+  execCallBack rm, callback
 
 set_up_release_dir = (callback) ->
-  mkdir '-p', "#{public_dir}/js/temp"
-  cp '-r', 'app', release_dir
-  cp '-r', "#{__dirname}/assets/js/*", "#{public_dir}/js/temp"
-  callback?()
+  mkdir = exec "mkdir -p #{public_dir}/js/temp"
+  execCallBack mkdir, ->
+    cp = exec "cp -r app #{release_dir} && cp -r #{__dirname}/assets/js/* #{public_dir}/js/temp"
+    execCallBack cp, callback?()
 
 clean_gz_release = (callback) ->
-  rm '-fr', "#{release_dir}/app/public/js/temp"
-  tar = exec "cd #{release_dir} && tar -zcf #{pkg.name}.tar.gz * && mv #{pkg.name}.tar.gz #{build_dir}"
-  tar.stdout.on 'data', (data) -> print data.toString()
-  tar.stderr.on 'data', (data) -> print data.toString()
-  execCallBack(tar, callback)
+  rm = exec "rm -fr #{release_dir}/app/public/js/temp"
+  execCallBack rm, () ->
+    tar = exec "cd #{release_dir} && tar -zcf #{pkg.name}.tar.gz * && mv #{pkg.name}.tar.gz #{build_dir}"
+    execCallBack(tar, callback)
 
 pre_release = (callback) ->
   build 'app', 'src', ->
@@ -86,7 +86,7 @@ pre_release = (callback) ->
 
 
 minify = (dest_js_dir, callback) ->
-  js_search_path      = "#{dest_js_dir}/temp"
+  js_search_path  = "#{dest_js_dir}/temp"
   js_files  = "find  #{js_search_path} -name '*.js'"
   to_param  = 'xargs cat'
   ugly_file = "#{dest_js_dir}/application_#{Date.now()}.js"
@@ -94,9 +94,6 @@ minify = (dest_js_dir, callback) ->
 
   uglify_it = "#{js_files} | #{to_param}| #{ugly_exec} > #{ugly_file}"
   ugly_proc = exec uglify_it
-  ugly_proc.stdout.on 'data', (data) -> print data.toString()
-  ugly_proc.stderr.on 'data', (data) -> print data.toString()
-
   execCallBack(ugly_proc, callback)
 #  callback?()
 
