@@ -26,15 +26,7 @@ log = (message, color, explanation) ->
   console.log color + message + reset + ' ' + (explanation or '')
 
 # Compiles app.coffee and src directory to the app directory
-build = (callback) ->
-  options = ['-c','-b', '-o', 'app', 'src']
-  cmd = which.sync 'coffee'
-  coffee = spawn cmd, options
-  coffee.stdout.pipe process.stdout
-  coffee.stderr.pipe process.stderr
-  coffee.on 'exit', (status) -> callback?() if status is 0
-
-build2 = (out_dir, in_dir, callback) ->
+build = (out_dir, in_dir, callback) ->
   options = ['-c','-b', '-o', out_dir, in_dir]
   cmd = which.sync 'coffee'
   coffee = spawn cmd, options
@@ -68,17 +60,17 @@ execCallBack= (process, callback) ->
   process.on 'exit', (status) -> callback?() if status is 0
 
 
-nuke_release = (dir, callback) ->
-  rm '-fr', dir
+nuke_build = (callback) ->
+  rm '-fr', build_dir
   callback?()
 
-set_up_release_dir = (public_dir, release_dir, callback) ->
+set_up_release_dir = (callback) ->
   mkdir '-p', "#{public_dir}/js/temp"
   cp '-r', 'app', release_dir
   cp '-r', "#{__dirname}/assets/js/*", "#{public_dir}/js/temp"
   callback?()
 
-clean_gz_release = (pkg_name, release_dir, callback) ->
+clean_gz_release = (callback) ->
   rm '-fr', "#{release_dir}/app/public/js/temp"
   tar = exec "cd #{release_dir} && tar -zcf #{pkg.name}.tar.gz * && mv #{pkg.name}.tar.gz #{build_dir}"
   tar.stdout.on 'data', (data) -> print data.toString()
@@ -86,10 +78,9 @@ clean_gz_release = (pkg_name, release_dir, callback) ->
   execCallBack(tar, callback)
 
 pre_release = (callback) ->
-  build ->
-    nuke_release 'build', -> set_up_release_dir public_dir, release_dir,
-    -> build2 "#{public_dir}/js/temp", "#{public_dir}/js/temp",
-    -> minify "#{release_dir}/app/public/js" , -> clean_gz_release(pkg.name, release_dir, callback)
+  build 'app', 'src', ->
+    nuke_build -> set_up_release_dir -> build "#{public_dir}/js/temp", "#{public_dir}/js/temp",
+    -> minify "#{release_dir}/app/public/js" , -> clean_gz_release callback
 
 
 
@@ -128,13 +119,13 @@ task 'docs', 'Generate annotated source code with Docco', ->
       log 'Docco is not installed - try npm install docco -g', red
 
 task 'build', ->
-  build -> log ":)", green
+  build 'app', 'src', -> log ":)", green
 
 task 'spec', 'Run Mocha tests', ->
-  build -> test -> log ":)", green
+  build 'app', 'src', -> test -> log ":)", green
 
 task 'test', 'Run Mocha tests', ->
-  build -> test -> log ":)", green
+  build 'app', 'src', -> test -> log ":)", green
 
 task 'release', 'build release', ->
   pre_release -> log ":) done: the release can be found at #{build_dir}", green
