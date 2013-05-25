@@ -15,7 +15,7 @@ When I started to work on nodejs there still quite a bit of requrments to fullfi
 
 ## Install:
 
-*make sure you already have nodejs, npm installed at global scope plus mongodb already installed*
+*make sure you already have nodejs, npm, mocha, coffeescript installed at global scope plus mongodb already installed*
 
 ```npm install -g epsom```
 
@@ -34,6 +34,7 @@ The above will create a project at your current path
 ## The stack:
 * [Nodejs](http://nodejs.org/)
 * [Expressjs](http://expressjs.com)
+* [Rawjs](https://github.com/klclee/rawjs)
 * [Emberjs](http://emberjs.com)
 * [Foundation](http://foundation.zurb.com/docs/)
 * [Jquery](http://jquery.com/)

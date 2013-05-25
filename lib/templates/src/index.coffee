@@ -6,7 +6,7 @@ app = express()
 config.app_config(app,express)
 
 app.get '/', (req, res) ->
-  res.render('./index')
+  res.render('./index.html')
 
 server = http.createServer(app)
 server.listen app.get('port'), () ->

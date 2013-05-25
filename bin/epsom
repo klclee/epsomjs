@@ -12,24 +12,10 @@ var exec = require('child_process').exec
     , pkg = require('../package.json')
     , version = pkg.version
     , fs = require('fs')
-    , sh = require('shelljs/global');
+    , sh = require('shelljs/global')
+    , dbJson = require('../lib/database.js').dbJson
+    , packageJson = require('../lib/package.js').package;
 
-
-
-function dbJson(project_name) {
-    return {
-        production: {
-            host: 'CHANGE_ME',
-            port: 27017,
-            databaseName: project_name + '_production'
-        },
-        development: {
-            host: 'localhost',
-            port: 27017,
-            databaseName: project_name + '_development'
-        }
-    };
-}
 
 function val(val){
     console.log(val);
@@ -53,9 +39,10 @@ var path_p = program.args.shift() || '.';
     mkdir('-p', path_p);
     var template_path = path.resolve(__dirname, '..', 'lib/templates/');
     cp('-R', template_path + '/*', path_p);
-    console.log(reset + blue +'creating database json config');
+    console.log(reset + green +'creating database json config');
     makeDatabaseJson(project_name);
-
+    console.log(reset + green +'creating package json config');
+    makePackageJson(project_name);
 })(path_p);
 
 
@@ -64,6 +51,10 @@ function makeDatabaseJson(project_name) {
     fs.writeFile( path_p + '/config/database.json', JSON.stringify(dbJson(project_name), null, 4));
 }
 
+function makePackageJson(project_name){
+    mkdir('-p', path_p);
+    fs.writeFile( path_p + '/package.json', JSON.stringify(packageJson(project_name), null, 4));
+}
 
 function exitPrint(){
     process.on('exit', function(){

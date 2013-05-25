@@ -1,13 +1,14 @@
 assets = require 'connect-assets'
 path = require 'path'
 database = require './database'
+raw = require 'raw'
 
 exports.app_config = (app, express) ->
   app.use assets()
   app.set 'port', process.env.PORT || 3000
   app.set 'views', path.resolve(__dirname, '..', 'assets/views')
-  app.use '/images',express.static(path.resolve(__dirname, '..', 'assets/images'))
-  app.set 'view engine', 'jade'
+  app.set 'view engine', 'raw'
+  app.engine 'html', raw.__express
   app.use express.favicon()
   app.use express.logger('dev')
   app.use express.bodyParser()
