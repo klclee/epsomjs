@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+<script type = 'text/x-handlebars'>
+    <nav class="top-bar">
+        <ul class="title-area">
+            <li class="name">
+                <h1>{{#linkTo 'index'}}EpsomJS{{/linkTo}}</h1>
+            </li>
+        </ul>
+    </nav>
+    {{outlet}}
+</script>
+
+
+<script type = 'text/x-handlebars' data-template-name='index'>
+    <div class="row">
+        <div class="large-12 columns">
+            <div class="row">
+                <div class="large-12">
+                    <h2>Welcome to your EpsomJS configured application.</h2>
+                    <p>We love emberjs here but it can be a bit tricky to start. So these templates is a example but make sure you watch the video below too.</p>
+                    <div class="row">
+                        <div class="large-12">
+                            <div class="featured">
+                                <div class="flex-video">
+                                   <iframe width='420' height='315' src='http://www.youtube.com/embed/Ga99hMi7wfY' frameborder='0' allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="large-12 columns">
+            <h2>Some more example. Click on the link below to activate a emberjs based route</h2>
+            {{#linkTo 'home'}}Home route{{/linkTo}}
+        </div>
+    </div>
+</script>
+
+<script type = 'text/x-handlebars' data-template-name='home'>
+    <div class="row">
+        <div class="large-12 columns">
+            <h2>Welcome to the home route</h2>
+            <p>As you see this is the home route key pieces of information here.</p>
+            <ul>
+                <li>
+                    <p>There is a home template file on the same html as index!</p>
+                </li>
+                <li>
+                    <p>It is rendered to the <i>outlet</i> in the application template</p>
+                </li>
+                <li>
+                    <p>application.coffee have a home resource which maps the handelbar template to the id.</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</script>
+
+
+{{{js lib/jquery }}}
+{{{js application}}}
+{{{css foundation}}}
+{{{css normalize}}}
+</body>
+</html>
