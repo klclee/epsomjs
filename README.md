@@ -10,7 +10,7 @@ When I started to work on nodejs there still quite a bit of requrments to fullfi
 * command line based (``` epsom ```) approch to created new project
 * coffeescript as main development language
 * Include database config json file to connect to mongodb via mongoose
-* Using metaprogramming technique to [dynamically retrieve models](https://github.com/klclee/epsomjs/blob/master/lib/templates/src/database.coffee), means less bolier plate for you.
+* Using metaprogramming technique to [dynamically retrieve models](https://github.com/klclee/epsomjs/blob/master/lib/templates/src/database.coffee), means less boiler plate for you.
 * A simple example of using emberjs in the application templates.
 
 ## Install:
