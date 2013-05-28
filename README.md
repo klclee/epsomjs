@@ -1,6 +1,8 @@
 epsom
 =======
 
+[![Build Status](https://travis-ci.org/klclee/epsomjs.png)](https://travis-ci.org/klclee/epsomjs)
+
 The aim of epsomjs is to provide a clear way to kick start your nodejs/expressjs project. Using epsom will allow you to start your next nodejs web stack in less then 1 minute!
 
 ## Why?
