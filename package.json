@@ -11,6 +11,11 @@
     "debug": "*",
 	"shelljs": "*"
   },
+   "devDependencies": {
+       "should": "*",
+       "which": "*" ,
+       "execSync": "*"
+  },
   "keywords": [
 	"epsom",
     "express",
@@ -35,7 +40,7 @@
   },
   "scripts": {
     "prepublish": "npm prune",
-    "test": "make test"
+    "test": "make test --compilers coffee:coffee-script"
   },
   "engines": {
     "node": "*"
