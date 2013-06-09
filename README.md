@@ -17,7 +17,7 @@ When I started to work on nodejs there still quite a bit of requrments to fullfi
 
 ## Install:
 
-*make sure you already have nodejs, npm, mocha, coffeescript installed at global scope plus mongodb already installed*
+*make sure you already have nodejs, npm, mocha, coffeescript, nodemon installed at global scope plus mongodb installed*
 
 ```npm install -g epsom```
 
