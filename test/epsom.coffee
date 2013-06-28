@@ -19,8 +19,13 @@ describe 'When calling epsom from the current directory', ->
     rm '-fr', temp_path
 
   it 'should create the expected files', ->
+    expected = [ 'assets','config','Gruntfile.coffee','package.json','server.js','src' ]
     res =  ls temp_path
-    res.join('').should.equal [ 'assets','config','Gruntfile.coffee','package.json','server.js','src' ].join('')
+    res.length.should.equal expected.length
+    for x in res
+      expected.indexOf(x).should.not.equal -1
+
+#    res.join('').should.equal [ 'assets','config','Gruntfile.coffee','package.json','server.js','src' ].join('')
 
   it 'should have no empty package.json', ->
     file_st = fs.readFileSync "#{temp_path}/package.json", 'utf8'
