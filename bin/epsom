@@ -67,7 +67,7 @@ function exitPrint(){
         }
         console.log();
         console.log(reset + '   run the app:');
-        console.log(reset + '     $ cake dev');
+        console.log(reset + '     $ grunt');
         console.log();
     });
 }

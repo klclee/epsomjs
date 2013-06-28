@@ -20,7 +20,7 @@ describe 'When calling epsom from the current directory', ->
 
   it 'should create the expected files', ->
     res =  ls temp_path
-    res.join('').should.equal [ 'Cakefile','assets','config','package.json','server.js','src' ].join('')
+    res.join('').should.equal [ 'assets','config','Gruntfile.coffee','package.json','server.js','src' ].join('')
 
   it 'should have no empty package.json', ->
     file_st = fs.readFileSync "#{temp_path}/package.json", 'utf8'

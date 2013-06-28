@@ -5,9 +5,6 @@ epsom
 
 The aim of epsomjs is to provide a clear way to kick start your nodejs/expressjs project. Using epsom will allow you to start your next nodejs web stack in less then 1 minute!
 
-## Why?
-When I started to work on nodejs there still quite a bit of requrments to fullfill be be productive at it. One of the thing I spends alot of time on is wiring frameworks up for a relativly simple web project. This is set out to help with that 
-
 ## features:
 * command line based (``` epsom ```) approch to created new project
 * coffeescript as main development language
@@ -17,7 +14,7 @@ When I started to work on nodejs there still quite a bit of requrments to fullfi
 
 ## Install:
 
-*make sure you already have nodejs, npm, mocha, coffeescript, nodemon installed at global scope plus mongodb installed*
+*make sure you already have nodejs, npm, mocha, coffeescript, grunt installed at global scope plus mongodb installed*
 
 ```npm install -g epsom```
 
